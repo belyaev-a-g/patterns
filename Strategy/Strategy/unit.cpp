@@ -7,12 +7,12 @@ Unit::Unit()
 
 void Unit::setRangeWeapon(RangeWeapon *w)
 {
-    rw = w;
+    rw.reset(w);
 }
 
 void Unit::setMeleeWeapon(MeleeWeapon *w)
 {
-    mw = w;
+    mw.reset(w);
 }
 
 
