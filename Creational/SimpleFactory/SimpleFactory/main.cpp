@@ -74,6 +74,15 @@ public:
         else
             return std::shared_ptr<Auto>(new Car);
     }
+
+    static std::shared_ptr<Auto> createAutoStatic(int i) {
+        if(i == 1)
+            return std::shared_ptr<Auto>(new Bus);
+        if(i == 2)
+            return std::shared_ptr<Auto>(new Truck);
+        else
+            return std::shared_ptr<Auto>(new Car);
+    }
 };
 
 void foo(std::shared_ptr<Auto> p) {
@@ -103,6 +112,10 @@ int main()
     foo(at);
     foo(st);
 
+
+    // Factory method
+    auto avto = SimpleFactory::createAutoStatic(1);
+    avto->beep();
 
     cout<<"Time to destruct"<<endl;
 
